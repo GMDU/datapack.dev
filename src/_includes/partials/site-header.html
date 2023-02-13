@@ -1,42 +1,37 @@
-<header>
-  <nav class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
+<header class="flex bg-gradient-to-r from-header-start to-header-end">
+  <nav
+    class="flex h-16 grow items-center justify-between gap-4 px-4 text-white"
+  >
+    <a href="/">
       <figure class="flex flex-shrink-0 items-center space-x-1">
         <img
           alt="11st starter-kit logo"
-          class="h-8 w-auto"
-          src="/images/11st-logo.svg"
-          height="32"
-          width="32"
+          class=""
+          src="/images/logo.png"
+          height="48"
+          width="48"
+          style="image-rendering: optimizeSpeed; image-rendering: pixelated"
         />
-        <figcaption>Starter-Kit</figcaption>
+        <figcaption class="font-minecraft text-2xl">datapack.dev</figcaption>
       </figure>
-      <ul class="flex space-x-4">
-        {% for item in navigation.items %} {% if item.url == page.url %} {%
-        assign highlight = 'cursor-default' %} {% assign current =
-        'aria-current="page"' %} {% else %} {% assign highlight = 'underline' %}
-        {% assign current = '' %} {% endif %}
-        <li>
-          <a
-            href="{{ item.url }}"
-            class="text-base font-bold {{ highlight }}"
-            {{
-            current
-            }}
-          >
-            {{ item.text }}
-          </a>
-        </li>
-        {% endfor %}
-        <li>
-          <a
-            href="https://github.com/stefanfrede/11st-starter-kit/"
-            class="text-base font-bold underline hover:text-green-900"
-          >
-            GitHub
-          </a>
-        </li>
-      </ul>
-    </div>
+    </a>
+    <ul class="flex space-x-4">
+      {% for item in navigation.items %} {% if item.url == page.url %} {% assign
+      highlight = 'cursor-default' %} {% assign current = 'aria-current="page"'
+      %} {% else %} {% assign highlight = 'underline' %} {% assign current = ''
+      %} {% endif %}
+      <li>
+        <a
+          href="{{ item.url }}"
+          class="text-base font-bold {{ highlight }} decoration-purple-500"
+          {{
+          current
+          }}
+        >
+          {{ item.text }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
   </nav>
 </header>
