@@ -9,3 +9,10 @@
   font-weight: 100;
   src: url("/Minecraft-Regular.woff2") format("woff2");
 }
+
+/* Default Link Styles */
+a {
+  @apply decoration-purple-500;
+  @apply focus:underline focus:decoration-red-500;
+  @apply hover:underline hover:text-purple-300 hover:decoration-red-500 active:decoration-purple-600;
+}

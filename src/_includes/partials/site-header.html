@@ -2,20 +2,22 @@
   <nav
     class="flex h-16 grow items-center justify-between gap-4 px-4 text-white"
   >
-    <a href="/">
+    <a href="/" class="hidden xs:block">
       <figure class="flex flex-shrink-0 items-center space-x-1">
         <img
           alt="GMDU logo"
-          class=""
+          class="max-w-none"
           src="/logo.png"
           height="48"
           width="48"
           style="image-rendering: optimizeSpeed; image-rendering: pixelated"
         />
-        <figcaption class="font-minecraft text-2xl">datapack.dev</figcaption>
+        <figcaption class="hidden font-minecraft text-2xl sm:block">
+          datapack.dev
+        </figcaption>
       </figure>
     </a>
-    <ul class="flex space-x-4">
+    <ul class="flex gap-2">
       {% for item in navigation.items %} {% if item.url == page.url %} {% assign
       highlight = 'cursor-default' %} {% assign current = 'aria-current="page"'
       %} {% else %} {% assign highlight = 'underline' %} {% assign current = ''
@@ -23,7 +25,7 @@
       <li>
         <a
           href="{{ item.url }}"
-          class="text-base font-bold {{ highlight }} decoration-purple-500"
+          class="text-base font-bold {{ highlight }} "
           {{
           current
           }}
