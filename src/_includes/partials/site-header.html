@@ -2,7 +2,7 @@
   <nav
     class="flex h-16 grow items-center justify-between gap-4 px-4 text-white"
   >
-    <a href="/" class="hidden xs:block">
+    <a href="/" class="hidden xs:block" class="heading">
       <figure class="flex flex-shrink-0 items-center space-x-1">
         <img
           alt="GMDU logo"
@@ -17,7 +17,7 @@
         </figcaption>
       </figure>
     </a>
-    <ul class="flex gap-2">
+    <ul class="flex gap-2 header-links">
       {% for item in navigation.items %} {% if item.url == page.url %} {% assign
       highlight = 'cursor-default' %} {% assign current = 'aria-current="page"'
       %} {% else %} {% assign highlight = 'underline' %} {% assign current = ''
@@ -35,5 +35,24 @@
       </li>
       {% endfor %}
     </ul>
+    <div class="dropdown hidden relative">
+      <span>☰</span>
+      <div class="dropdown-content bg-gray-800 p-2 hidden absolute">
+        {% for item in navigation.items %} {% if item.url == page.url %} {%
+        assign highlight = 'cursor-default' %} {% assign current =
+        'aria-current="page"' %} {% else %} {% assign highlight = 'underline' %}
+        {% assign current = '' %} {% endif %}
+        <a
+          href="{{ item.url }}"
+          class="text-base font-bold {{ highlight }} decoration-purple-500 block"
+          {{
+          current
+          }}
+        >
+          {{ item.text }}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
   </nav>
 </header>
