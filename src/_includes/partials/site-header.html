@@ -1,4 +1,6 @@
-<header class="flex bg-gradient-to-r from-header-start to-header-end">
+<header
+  class="flex bg-gradient-to-r from-header-start to-header-end select-none"
+>
   <nav
     class="flex h-16 grow items-center justify-between gap-4 px-4 text-white"
   >
@@ -12,10 +14,12 @@
           width="48"
           style="image-rendering: optimizeSpeed; image-rendering: pixelated"
         />
-        <figcaption class="font-minecraft text-2xl">datapack.dev</figcaption>
+        <figcaption class="font-minecraft text-2xl hidden sm:block">
+          datapack.dev
+        </figcaption>
       </figure>
     </a>
-    <ul class="flex gap-2 header-links">
+    <ul class="gap-2 hidden xs:flex">
       {% for item in navigation.items %} {% if item.url == page.url %} {% assign
       highlight = 'cursor-default' %} {% assign current = 'aria-current="page"'
       %} {% else %} {% assign highlight = 'underline' %} {% assign current = ''
@@ -33,9 +37,40 @@
       </li>
       {% endfor %}
     </ul>
-    <div class="dropdown hidden relative">
-      <span>☰</span>
-      <div class="dropdown-content bg-gray-800 p-2 hidden absolute">
+    <div class="dropdown xs:hidden relative" x-data="{ menu: false }">
+      <span x-on:click="menu = !menu" class="cursor-pointer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+          x-show="!menu"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+          x-show="menu"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </span>
+      <div class="bg-gray-800 p-2 absolute -right-4" x-show="menu">
         {% for item in navigation.items %} {% if item.url == page.url %} {%
         assign highlight = 'cursor-default' %} {% assign current =
         'aria-current="page"' %} {% else %} {% assign highlight = 'underline' %}

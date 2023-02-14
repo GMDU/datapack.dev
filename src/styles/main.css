@@ -17,28 +17,3 @@ a {
   @apply focus:underline focus:decoration-red-500;
   @apply hover:underline hover:text-purple-300 hover:decoration-red-500 active:decoration-purple-600;
 }
-
-@media screen and (max-width: 520px) {
-  a.heading figcaption {
-    display: none;
-  }
-}
-
-div.dropdown div.dropdown-content {
-  right: -16px;
-}
-
-div.dropdown:hover div.dropdown-content {
-  display: block;
-}
-
-@media screen and (max-width: 360px) {
-  div.dropdown {
-    display: block;
-  }
-
-  .header-links {
-    display: none;
-  }
-}
-
